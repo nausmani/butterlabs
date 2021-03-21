@@ -27,29 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $parser = new Parser();
-        $pdf = $parser->parseFile('http://butterlabs.local/uploads/1616322422.pdf');
-        $text = $pdf->getText();
-//        $pages  = $pdf->getDetails();
-        echo "<pre>";
-        print_r($text);
-        echo "</pre>";
-
-echo "*****************************************************";
-
-//        echo "<img src='http://butterlabs.local/uploads/4089.png'>";
-//        echo (new TesseractOCR('http://butterlabs.local/uploads/4089.png'))->run();
-//        echo "<pre>";
-//        print_r($pages);
-//        echo "</pre>";
-echo "*****************************************************";
-//        $details  = $pdf->getDetails();
-//        echo "<pre>";
-//        print_r($details);
-//        echo "</pre>";
-
-        exit;
-
         return view('home');
     }
 }
