@@ -8,6 +8,10 @@
     .myDiv {
         margin: 25px
     }
+    .pdf-action-btn {
+        padding: 15px 50px !important;
+        min-width: 325px !important;
+    }
 </style>
 
 @section('content')
@@ -26,10 +30,16 @@
 
                     <h3>Upload Invoices (PDF):</h3>
 
-                    <div class="myDiv">
-                        <a role="button" href="/pdf-upload/frontier" class="btn btn-success"> + Frontier Comunication</a> </br>
-                        <a role="button" href="/pdf-upload/comcast" class="btn btn-success"> + Comcast Business</a> </br>
-                        <a role="button" href="/pdf-upload/redlight" class="btn btn-success"> + Red Light</a> </br>
+                    <div class="row myDiv">
+                        <div class="col-md-4">
+                            <a role="button" href="/pdf-upload/frontier" class="btn btn-success pdf-action-btn"> + Frontier Communications</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a role="button" href="/pdf-upload/comcast" class="btn btn-success pdf-action-btn"> + Comcast Business</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a role="button" href="/pdf-upload/rednight" class="btn btn-success pdf-action-btn"> + Red Night Consulting</a>
+                        </div>
                     </div>
                 </div>
             </div>

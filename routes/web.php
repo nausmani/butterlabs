@@ -25,5 +25,11 @@ Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload'
 Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
 
 
+Route::get('pdf-upload/frontier', 'FileUploadController@frontier');
+Route::post('pdf-upload/frontier', 'FileUploadController@frontierHandle');
+
 Route::get('pdf-upload/comcast', 'FileUploadController@comcast');
 Route::post('pdf-upload/comcast', 'FileUploadController@comcastHandle');
+
+Route::get('pdf-upload/rednight', 'FileUploadController@redNight');
+Route::post('pdf-upload/rednight', 'FileUploadController@redNightHandle');
