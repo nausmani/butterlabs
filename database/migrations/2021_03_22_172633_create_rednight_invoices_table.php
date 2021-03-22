@@ -27,6 +27,7 @@ class CreateRednightInvoicesTable extends Migration
             $table->float('payments');
             $table->float('credits');
             $table->float('balance_due');
+            $table->integer('created_by');
             $table->timestamps();
         });
     }

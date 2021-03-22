@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\RednightInvoice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Smalot\PdfParser\Parser;
 
 
@@ -158,6 +160,8 @@ class FileUploadController extends Controller
 
     public function redNightHandle(Request $req)
     {
+        $curUser = Auth::user();
+
         $req->validate([
             'file' => 'required|mimes:pdf|max:512',
         ]);
@@ -224,6 +228,22 @@ class FileUploadController extends Controller
             }
 
         }
+
+        $rednight_obj = new RednightInvoice();
+        $rednight_obj->invoice_date = @$data['invoice_date'];
+        $rednight_obj->invoice_number = @$data['invoice_number'];
+        $rednight_obj->account_name = @$data['account_name'];
+        $rednight_obj->bill_to = @$data['bill_to'];
+        $rednight_obj->ship_to = @$data['ship_to'];
+        $rednight_obj->total_products_and_other_charges = @$data['total_products_and_other_charges'];
+        $rednight_obj->invoice_sub_total = @$data['invoice_sub_total'];
+        $rednight_obj->sales_tax = @$data['sales_tax'];
+        $rednight_obj->invoice_total = @$data['invoice_total'];
+        $rednight_obj->payments = @$data['payments'];
+        $rednight_obj->credits = @$data['credits'];
+        $rednight_obj->balance_due = @$data['balance_due'];
+        $rednight_obj->created_by = $curUser->id;
+        $rednight_obj->save();
 
         dd($data);
     }
